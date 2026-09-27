@@ -129,6 +129,11 @@ my-pi-package/
 - `deliverAs: "steer"`：当前 assistant 轮的工具执行完后、下一次调用 LLM 前送达（见 rpc-commands.md）。
 - `deliverAs: "followUp"`：等 agent 完成全部工作后才送达。
 - `deliverAs: "nextTurn"`：先挂起，随用户下一条消息一起注入，不单独触发一轮（源码 `core/agent-session.js` 中的 `_pendingNextTurnMessages`）。
+- 源码 `sendCustomMessage` 的完整分支：
+  - agent 运行中，且没有设 `triggerTurn: false`：`followUp` 进入 follow-up 队列，其余情况（包括不指定 `deliverAs`）按 steer 处理。
+  - agent 空闲且 `triggerTurn: true`：立即开始新一轮。
+  - agent 空闲且不触发：只追加到会话。
+  - agent 运行中且 `triggerTurn: false`：等当前轮结束后再追加。
 - `pi.sendUserMessage()` 总会触发一轮。
 
 ### 3.6 状态存储选择（官方表）

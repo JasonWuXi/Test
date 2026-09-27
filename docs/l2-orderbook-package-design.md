@@ -1,5 +1,7 @@
 # L2 深度数据 Pi Package：研究与方案（pi-orderbook）
 
+> **已被 v2 取代**：见 [l2-orderbook-package-design-v2.md](./l2-orderbook-package-design-v2.md)。本文保留为历史版本；对比评估引用的是提交 `2d819bc`。
+
 > 研究日期：2026-09-27。宿主版本：Pi 0.87.1；IBKR Python 客户端：官方 TWS API 10.50.2（与 pi-technical 固定的同一官方归档）。
 > 配套文档：[Pi Package 基础知识](./pi-package-fundamentals.md)。
 > 标注约定：**[官方]** 表示 IBKR 或 Pi 官方文档、源码能证实；**[M0]** 表示必须实测确认，确认前不作为产品承诺；**[设计]** 表示本方案的取舍；带“初值”的阈值要在 M2 用录制数据标定。
